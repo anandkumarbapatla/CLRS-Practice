@@ -12,6 +12,7 @@ public class InsertionSort {
 			//current number picked from table
 			int currentNumber = exampleArray[j];
 			int i = j-1;
+			//Change > to < so that it can give descending order
 			while(i>=0 && exampleArray[i] > currentNumber) {
 				//Copying doesn't loose the next term as we have it in current Number
 				exampleArray[i+1] = exampleArray[i];
