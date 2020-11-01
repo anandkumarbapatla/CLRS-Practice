@@ -1,0 +1,19 @@
+Input: Array of number A[1,2...n]
+Length of array is given by A.length
+Sorts within the array
+
+Pseudo code:
+
+Analogy is sorting cards in hand, Take the first card from table and keep it. Second card is taken from table and keep at the respective place in the hand. Repet this for all cards giving the sorted array. 
+
+Insertion
+
+1.	FOR j = 2 to A.length
+2.	key = A[j]
+3.	//Insert A[j] into sorted sequence A[1,j-1] in hand at that time
+4.	i = j-1
+5.	//Moving cards to get place for leat number
+6.	while i > 0 and A[i] > key
+7.		A[i+1] = A[i]
+8.		i = i-1
+9.	A[i+1] = key
