@@ -8,15 +8,15 @@ Analogy is sorting cards in hand, Take the first card from table and keep it. Se
 
 Insertion
 
-1.	FOR j = 2 to A.length
-2.	key = A[j]
+1.	FOR j = 2 to A.length // n times
+2.	key = A[j] //n-1 times
 3.	//Insert A[j] into sorted sequence A[1,j-1] in hand at that time
-4.	i = j-1
+4.	i = j-1 //n-1 times
 5.	//Moving cards to get place for leat number
-6.	while i > 0 and A[i] > key
-7.		A[i+1] = A[i]
-8.		i = i-1
-9.	A[i+1] = key
+6.	while i > 0 and A[i] > key // sigma 2 to n tj 
+7.		A[i+1] = A[i] // sigma 2 to n tj-1
+8.		i = i-1 // sigma 2 to n tj-1
+9.	A[i+1] = key // n-1
 
 
 Three steps of algorithm
@@ -25,3 +25,28 @@ Maintenance: If it is true before an iteration of the loop, it remains true befo
 next iteration.
 Termination: When the loop terminates, the invariant gives us a useful property
 that helps show that the algorithm is correct.
+
+
+Complexity: Let us assume each statement in insertion sort takes a constant time of ci. 
+Each for loop will execute 1 time more than the successful cases. In insertion sort, let us assume the size of the array is denoted by n. for loop is executing from 2 to n, so n-1+1(failure case) times. So for loop will execute for n times. 
+tj denote the number of times the while loop test in line 5 is executed for that value of j.
+
+T(n) = c1n+c2(n-1)+c4(n-1)+ c6sigma 2 to n tj  + c7 sigma 2 to n tj-1 + c8sigma 2 to n tj-1 + c9(n-1)
+
+best case scenario is when array is already sorted. 
+While loop will not execute as A[i] < key always
+hence, 
+
+T(n) = c1n + c2(n-1)+c4(n-1)+c6(n-1) (test in while)+ c9(n-1)
+= n(c1+c2+c4+c6+c9) - (c2+c4+c6+c9)
+= an -b
+
+for larger values of n we cn ignore a and b constants.
+
+ Worst-case scenario is when array is in descending order. 
+ 
+T(n) = an2+bn+c
+
+Theta of (n2) is the worst-case time complexity
+
+Theta of(n2) runs quickly than theta of(n3)
